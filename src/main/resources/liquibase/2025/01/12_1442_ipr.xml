@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="2025-01-12_1442" author="Vyacheslav Korostelev"
+               logicalFilePath="/liquibase/2025/01/12_1442_ipr.xml">
+
+        <createTable tableName="passport_data" schemaName="ipr" remarks="Паспортные данные">
+            <column name="id" type="UUID" remarks="Идентификатор">
+                <constraints primaryKey="true" nullable="false" primaryKeyName="pk_passport_data"/>
+            </column>
+            <column name="identification_passport_number" type="VARCHAR(12)" remarks="Номер паспорта">
+                <constraints nullable="false"/>
+            </column>
+            <column name="issuance_date" type="DATE" remarks="Дата выдачи">
+                <constraints nullable="false"/>
+            </column>
+            <column name="expiry_date" type="DATE" remarks="Дата окончания">
+                <constraints nullable="false"/>
+            </column>
+            <column name="birth_date" type="DATE" remarks="Дата рождения">
+                <constraints nullable="false"/>
+            </column>
+            <column name="nationality" type="VARCHAR(50)" remarks="Гражданство">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+    </changeSet>
+</databaseChangeLog>

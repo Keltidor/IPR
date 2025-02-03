@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="2025-01-12_1611" author="Vyacheslav Korostelev"
+               logicalFilePath="/liquibase/2025/01/12_1611_ipr.xml">
+
+        <createTable tableName="currency" schemaName="ipr" remarks="Справочник валют">
+            <column name="id" type="SERIAL" remarks="Идентификатор валюты">
+                <constraints primaryKey="true" nullable="false" primaryKeyName="pk_currency"/>
+            </column>
+            <column name="code" type="VARCHAR(3)" remarks="Код валюты">
+                <constraints nullable="false" unique="true"/>
+            </column>
+        </createTable>
+
+        <insert tableName="currency" schemaName="ipr">
+            <column name="code" value="RUB"/>
+        </insert>
+        <insert tableName="currency" schemaName="ipr">
+            <column name="code" value="KZT"/>
+        </insert>
+        <insert tableName="currency" schemaName="ipr">
+            <column name="code" value="USD"/>
+        </insert>
+
+    </changeSet>
+</databaseChangeLog>

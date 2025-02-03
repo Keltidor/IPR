@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="2025-01-12_1449" author="Vyacheslav Korostelev"
+               logicalFilePath="/liquibase/2025/01/12_1449_ipr.xml">
+
+        <createTable tableName="users" schemaName="ipr" remarks="Пользователи">
+            <column name="id" type="UUID" remarks="Идентификатор пользователя">
+                <constraints primaryKey="true" nullable="false" primaryKeyName="pk_users"/>
+            </column>
+            <column name="first_name" type="VARCHAR(255)" remarks="Имя">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_name" type="VARCHAR(255)" remarks="Фамилия">
+                <constraints nullable="false"/>
+            </column>
+            <column name="middle_name" type="VARCHAR(255)" remarks="Отчество"/>
+            <column name="mobile_phone" type="VARCHAR(15)" remarks="Телефон">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="passport_data_id" type="UUID" remarks="ID паспортных данных">
+                <constraints nullable="false"/>
+            </column>
+            <column name="client_status" type="BOOLEAN" remarks="Статус клиента">
+                <constraints nullable="false"/>
+            </column>
+            <column name="country_of_residence_id" type="SERIAL" remarks="ID страны проживания">
+                <constraints nullable="false"/>
+            </column>
+            <column name="encoded_password" type="VARCHAR(255)" remarks="Пароль">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="VARCHAR(255)" remarks="Электронная почта">
+                <constraints nullable="false" unique="true"/>
+            </column>
+        </createTable>
+
+    </changeSet>
+</databaseChangeLog>

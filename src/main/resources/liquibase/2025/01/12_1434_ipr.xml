@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="2025-01-12_1434" author="Vyacheslav Korostelev"
+               logicalFilePath="/liquibase/2025/01/12_1434_ipr.xml">
+
+        <createTable tableName="limits" schemaName="ipr" remarks="Лимиты пользователей">
+            <column name="id" type="UUID" remarks="Идентификатор лимита">
+                <constraints primaryKey="true" nullable="false" primaryKeyName="pk_limits"/>
+            </column>
+            <column name="account_id" type="UUID" remarks="Идентификатор аккаунта">
+                <constraints nullable="false"/>
+            </column>
+            <column name="limit_amount" type="DECIMAL(19,2)" remarks="Сумма лимита">
+                <constraints nullable="false"/>
+            </column>
+            <column name="currency_id" type="SERIAL" remarks="Идентификатор валюты">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" type="TIMESTAMP" remarks="Дата создания">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+    </changeSet>
+</databaseChangeLog>

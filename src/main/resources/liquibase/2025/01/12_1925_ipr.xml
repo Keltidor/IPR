@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="2025-01-12_1925" author="Vyacheslav Korostelev"
+               logicalFilePath="/liquibase/2025/01/12_1925_ipr.xml">
+
+        <addForeignKeyConstraint baseTableSchemaName="ipr"
+                                 baseTableName="transactions" baseColumnNames="account_id"
+                                 constraintName="fk_transactions_account_id"
+                                 referencedTableSchemaName="ipr"
+                                 referencedTableName="accounts"
+                                 referencedColumnNames="id"
+                                 onUpdate="CASCADE"
+                                 onDelete="CASCADE"/>
+
+        <addForeignKeyConstraint baseTableSchemaName="ipr"
+                                 baseTableName="limits" baseColumnNames="account_id"
+                                 constraintName="fk_limits_account_id"
+                                 referencedTableSchemaName="ipr"
+                                 referencedTableName="accounts"
+                                 referencedColumnNames="id"
+                                 onUpdate="CASCADE"
+                                 onDelete="CASCADE"/>
+
+        <addForeignKeyConstraint baseTableSchemaName="ipr"
+                                 baseTableName="user_roles" baseColumnNames="user_id"
+                                 constraintName="fk_user_roles_user_id"
+                                 referencedTableSchemaName="ipr"
+                                 referencedTableName="users"
+                                 referencedColumnNames="id"
+                                 onUpdate="CASCADE"
+                                 onDelete="CASCADE"/>
+
+        <addForeignKeyConstraint baseTableSchemaName="ipr"
+                                 baseTableName="users" baseColumnNames="passport_data_id"
+                                 constraintName="fk_users_passport_data_id_passport_data"
+                                 referencedTableSchemaName="ipr"
+                                 referencedTableName="passport_data"
+                                 referencedColumnNames="id"
+                                 onUpdate="CASCADE"
+                                 onDelete="CASCADE"/>
+
+        <addForeignKeyConstraint baseTableSchemaName="ipr"
+                                 baseTableName="accounts" baseColumnNames="currency_id"
+                                 constraintName="fk_accounts_currency_id"
+                                 referencedTableSchemaName="ipr"
+                                 referencedTableName="currency"
+                                 referencedColumnNames="id"
+                                 onUpdate="CASCADE"
+                                 onDelete="CASCADE"/>
+
+        <addForeignKeyConstraint baseTableSchemaName="ipr"
+                                 baseTableName="users" baseColumnNames="country_of_residence_id"
+                                 constraintName="fk_users_country_of_residence_id"
+                                 referencedTableSchemaName="ipr"
+                                 referencedTableName="country_of_residence"
+                                 referencedColumnNames="id"
+                                 onUpdate="CASCADE"
+                                 onDelete="CASCADE"/>
+
+        <addForeignKeyConstraint baseTableSchemaName="ipr"
+                                 baseTableName="limits" baseColumnNames="currency_id"
+                                 constraintName="fk_limits_currency_id"
+                                 referencedTableSchemaName="ipr"
+                                 referencedTableName="currency"
+                                 referencedColumnNames="id"
+                                 onUpdate="CASCADE"
+                                 onDelete="CASCADE"/>
+
+        <addForeignKeyConstraint baseTableSchemaName="ipr"
+                                 baseTableName="transactions" baseColumnNames="currency_id"
+                                 constraintName="fk_transactions_currency_id"
+                                 referencedTableSchemaName="ipr"
+                                 referencedTableName="currency"
+                                 referencedColumnNames="id"
+                                 onUpdate="CASCADE"
+                                 onDelete="CASCADE"/>
+
+        <addForeignKeyConstraint baseTableSchemaName="ipr"
+                                 baseTableName="limit_settings" baseColumnNames="limit_id"
+                                 constraintName="fk_limit_settings_limit_id"
+                                 referencedTableSchemaName="ipr"
+                                 referencedTableName="limits"
+                                 referencedColumnNames="id"
+                                 onUpdate="CASCADE"
+                                 onDelete="CASCADE"/>
+
+    </changeSet>
+</databaseChangeLog>
